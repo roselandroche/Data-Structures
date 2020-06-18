@@ -1,3 +1,7 @@
+import sys
+sys.path.append('../singly_linked_list')
+from singly_linked_list import LinkedList
+
 """
 A queue is a data structure whose primary purpose is to store and
 return elements in First In First Out order. 
@@ -36,46 +40,43 @@ Stretch: What if you could only use instances of your Stack class to implement t
 #             return None
 
 # AS A LINKED LIST - FIFO
-class Node:
-    def __init__(self, value=None, next_node=None):
-        self.value = value
-        self.next_node = next_node
-
 class Queue:
     def __init__(self):
-        self.head = None
-        self.tail = None
+        self.queue = LinkedList()
     
     def __len__(self):
-        if self.head is None and self.tail is None:
-            return 0
-        current_node = self.head
-        length = 1
-        while current_node is not self.tail:
-            length += 1
-            current_node = current_node.next_node
-        return length
+        return len(self.queue)
+        # if self.head is None and self.tail is None:
+        #     return 0
+        # current_node = self.head
+        # length = 1
+        # while current_node is not self.tail:
+        #     length += 1
+        #     current_node = current_node.next_node
+        # return length
 
     def enqueue(self, value):
-        new_node = Node(value)
+        self.queue.add_to_tail(value)
+        # new_node = Node(value)
 
-        if self.head is None and self.tail is None:
-            self.head = new_node
-            self.tail = new_node
-        else:
-            self.tail.next_node = new_node
-            self.tail = new_node
+        # if self.head is None and self.tail is None:
+        #     self.head = new_node
+        #     self.tail = new_node
+        # else:
+        #     self.tail.next_node = new_node
+        #     self.tail = new_node
 
     def dequeue(self):
-        if not self.head:
-            return None
+        self.queue.remove_head()
+        # if not self.head:
+        #     return None
         
-        if self.head.next_node is None:
-            head_value = self.head.value
-            self.head = None
-            self.tail = None
-            return head_value
+        # if self.head.next_node is None:
+        #     head_value = self.head.value
+        #     self.head = None
+        #     self.tail = None
+        #     return head_value
         
-        head_value = self.head.value
-        self.head = self.head.next_node
-        return head_value
+        # head_value = self.head.value
+        # self.head = self.head.next_node
+        # return head_value
