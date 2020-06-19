@@ -1,6 +1,4 @@
-import sys
-sys.path.append('../singly_linked_list')
-from singly_linked_list import LinkedList
+from stack_singly_linked_list import LinkedList
 
 """
 A stack is a data structure whose primary purpose is to store and
@@ -43,33 +41,23 @@ class Stack:
 
     def __len__(self):
         return len(self.stack)
-        # if self.head is None and self.tail is None:
-        #     return 0
-
-        # if self.head.next_node is self.tail:
-        #     return 2
-
-        # current_node = self.head
-        # length = 1
-
-        # while current_node is not self.tail:
-        #     length += 1
-        #     current_node = current_node.next_node
-        # return length
 
     def push(self, value):
         self.stack.add_to_head(value)
 
     def pop(self):
-        self.stack.remove_head()
-        # if not self.head:
-        #     return None
-        # if self.head.next_node is None:
-        #     head_value = self.head.value
-        #     self.head = None
-        #     self.tail = None
-        #     return head_value
-        # head_value = self.head.value
-        # self.head = self.head.next_node
-        # return head_value
-        
+        if len(self.stack) == 0:
+            return None
+        value = self.stack.remove_head()
+        print(value)
+        return value
+
+stack = Stack()
+
+stack.push(100)
+stack.push(101)
+stack.push(105)
+print(stack.pop())
+print(stack.pop())
+print(stack.pop())
+

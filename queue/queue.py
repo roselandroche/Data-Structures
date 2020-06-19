@@ -1,6 +1,4 @@
-import sys
-sys.path.append('../singly_linked_list')
-from singly_linked_list import LinkedList
+from queue_singly_linked_list import LinkedList
 
 """
 A queue is a data structure whose primary purpose is to store and
@@ -46,37 +44,10 @@ class Queue:
     
     def __len__(self):
         return len(self.queue)
-        # if self.head is None and self.tail is None:
-        #     return 0
-        # current_node = self.head
-        # length = 1
-        # while current_node is not self.tail:
-        #     length += 1
-        #     current_node = current_node.next_node
-        # return length
 
     def enqueue(self, value):
         self.queue.add_to_tail(value)
-        # new_node = Node(value)
-
-        # if self.head is None and self.tail is None:
-        #     self.head = new_node
-        #     self.tail = new_node
-        # else:
-        #     self.tail.next_node = new_node
-        #     self.tail = new_node
 
     def dequeue(self):
-        self.queue.remove_head()
-        # if not self.head:
-        #     return None
-        
-        # if self.head.next_node is None:
-        #     head_value = self.head.value
-        #     self.head = None
-        #     self.tail = None
-        #     return head_value
-        
-        # head_value = self.head.value
-        # self.head = self.head.next_node
-        # return head_value
+        value = self.queue.remove_head()
+        return value
