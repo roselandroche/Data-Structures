@@ -52,12 +52,3 @@ class Stack:
         print(value)
         return value
 
-stack = Stack()
-
-stack.push(100)
-stack.push(101)
-stack.push(105)
-print(stack.pop())
-print(stack.pop())
-print(stack.pop())
-
