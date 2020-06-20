@@ -123,18 +123,14 @@ class DoublyLinkedList:
     the node was the head or the tail"""
     def delete(self, node):
         if node == self.head:
-            self.remove_from_head
+            self.remove_from_head()
         elif node == self.tail:
-            self.remove_from_tail
+            self.remove_from_tail()
         elif not node:
             return None
         else:
-            before_node = node.prev
-            after_node = node.next
+            self.length -= 1
             to_remove = node
-
-            before_node.next = after_node
-            after_node.prev = before_node
 
             node.delete()
             print(to_remove)
@@ -143,14 +139,14 @@ class DoublyLinkedList:
     """Removes the input node from its current spot in the 
     List and inserts it as the new head node of the List."""
     def move_to_front(self, node):
-        new_head = ListNode(node)
+        new_head = node.value
         self.delete(node)
         self.add_to_head(new_head)
 
     """Removes the input node from its current spot in the 
     List and inserts it as the new tail node of the List."""
     def move_to_end(self, node):
-        new_tail = ListNode(node)
+        new_tail = node.value
         self.delete(node)
         self.add_to_tail(new_tail)
         
@@ -164,18 +160,4 @@ class DoublyLinkedList:
             if current_node.value > highest:
                 highest = current_node.value
             current_node = current_node.next
-        # print(highest)
         return highest
-
-# delete_me = ListNode(14)
-# dll = DoublyLinkedList()
-
-# dll.add_to_tail(1)
-# dll.add_to_head(9)
-# dll.add_to_tail(6)
-# dll.add_to_head(delete_me.value)
-
-# print(dll)
-
-# dll.delete(delete_me)
-# print(dll)
