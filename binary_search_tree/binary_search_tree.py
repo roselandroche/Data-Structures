@@ -17,15 +17,13 @@ class BSTNode:
 
     # Insert the given value into the tree
     def insert(self, value):
-        if self.value >= value and self.left == None:
+        if self.value > value and self.left is None:
             self.left = BSTNode(value)
-            print(self.left.value)
-        elif self.value >= value and self.left != None:
+        elif self.value > value and self.left is not None:
             self.left.insert(value)
-        elif self.value <= value and self.right == None:
+        elif self.value <= value and self.right is None:
             self.right = BSTNode(value)
-            print(self.right.value)
-        elif self.value <= value and self.right != None:
+        elif self.value <= value and self.right is not None:
             self.right.insert(value)
 
     # Return True if the tree contains the value
@@ -33,11 +31,11 @@ class BSTNode:
     def contains(self, target):
         if self.value == target:
             return True
-        if self.value < target:
+        if self.value > target:
             if self.left is None:
                 return False
             found = self.left.contains(target)
-        elif self.value >= target:
+        elif self.value < target:
             if self.right is None:
                 return False
             found = self.right.contains(target)
@@ -90,3 +88,4 @@ class BSTNode:
     # Print Post-order recursive DFT
     def post_order_dft(self, node):
         pass
+
