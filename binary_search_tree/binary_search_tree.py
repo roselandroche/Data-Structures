@@ -45,19 +45,15 @@ class BSTNode:
     def get_max(self):
         if self.right == None:
             return self.value
-        elif self.right != None:
-            largest = self.right.get_max()
-        return largest
+        return self.right.get_max()
 
     # Call the function `fn` on the value of each node
     def for_each(self, fn):
         if self.value is not None:
-            fn(self.value)
-            if self.left is not None:
-                fn(self.left)
+            if self.left:
                 self.left.for_each(fn)
-            if self.right is not None:
-                fn(self.right)
+            fn(self.value)
+            if self.right:
                 self.right.for_each(fn)
             
 
@@ -66,16 +62,32 @@ class BSTNode:
     # Print all the values in order from low to high
     # Hint:  Use a recursive, depth first traversal
     def in_order_print(self, node):
+        # JUST REWRITE FOR EACH
         pass
 
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
     def bft_print(self, node):
+        # create a queue for nodes
+        # add the first node to the queue
+        # while queue is not empty, 
+            # remove the first node from the queue (pop and save to variable)
+            # print the removed node (via variable)
+            # add all children into queue
+            # repeat
         pass
 
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
     def dft_print(self, node):
+        # create a stack for nodes
+        # add the first node to the stack
+        # while the stack is not empty:
+            # get the current node from the top of the stack
+            # print that node
+            # add right child then left child to stack - ORDER MATTERS
+            # repeat - remove left child, print left child, add right child and left child to stack
+            # 
         pass
 
     # Stretch Goals -------------------------
