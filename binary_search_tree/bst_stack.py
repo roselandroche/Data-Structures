@@ -1,4 +1,4 @@
-from stack_singly_linked_list import LinkedList
+from bst_linked_list import LinkedList
 
 """
 A stack is a data structure whose primary purpose is to store and
@@ -49,6 +49,5 @@ class Stack:
         if len(self.stack) == 0:
             return None
         value = self.stack.remove_head()
-        print(value)
         return value
 
